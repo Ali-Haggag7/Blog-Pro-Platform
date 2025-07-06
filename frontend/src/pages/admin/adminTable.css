@@ -1,0 +1,152 @@
+.table-container {
+    display: flex;
+    height: calc(100vh - 130px);
+    overflow: hidden;
+}
+
+.table-wrapper {
+    flex: 10;
+    padding: 20px;
+    overflow-y: scroll;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.table-title {
+    font-size: 30px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--gray-color);
+    padding-bottom: 3px;
+    width: max-content;
+}
+
+.table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+th,
+td {
+    border: 1px solid var(--gray-color);
+    padding: 10px;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+}
+
+tr:hover {
+    background-color: var(--table-row-hover-bg);
+}
+
+.table-image {
+    display: flex;
+    align-items: center;
+}
+
+.table-user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.table-username {
+    font-weight: 500;
+    font-size: 17px;
+    margin-left: 5px;
+}
+
+.table-button-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.table-button-group button {
+    border: none;
+    background-color: var(--table-edit-btn-bg);
+    color: var(--table-btn-text);
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.table-button-group button:last-child {
+    background-color: var(--table-delete-btn-bg);
+}
+
+.table-button-group button:first-child:hover {
+    background-color: var(--table-edit-btn-hover-bg);
+}
+
+.table-button-group button:last-child:hover {
+    background-color: var(--table-delete-btn-hover-bg);
+}
+
+.table-button-group button a {
+    color: var(--table-btn-text);
+}
+
+/* Media Queries */
+@media (max-width: 720px) {
+    .table-wrapper {
+        padding: 15px;
+    }
+
+    .table-button-group {
+        flex-wrap: wrap;
+    }
+
+    .table-button-group button {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    th,
+    td {
+        padding: 5px;
+    }
+
+    .table-image {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 520px) {
+    .table {
+        text-align: center;
+    }
+
+    .table-wrapper {
+        padding: 5px;
+    }
+
+    th,
+    td {
+        padding: 2px;
+    }
+
+    .table-button-group button {
+        font-size: 15px;
+    }
+
+    .table-user-image {
+        width: 35px;
+        height: 35px;
+    }
+
+    .table-username {
+        font-size: 16px;
+    }
+}

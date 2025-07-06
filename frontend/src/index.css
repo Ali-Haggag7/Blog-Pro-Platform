@@ -1,0 +1,336 @@
+:root {
+    /* 🌈 Base Colors */
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --gray-color: #778697;
+    --main-color: #efefef;
+    --primary-color: #1d2d3d;
+    --secondary-color: #495e74;
+    --dark-color: #292b2c;
+
+    --blue-color: #0275d8;
+    --green-color: #27ae60;
+    --green-sea-color: #16a085;
+    --pumpkin-color: #d35400;
+    --red-color: #d9534f;
+
+    /* ✍️ Typography */
+    --text-color: var(--black-color);
+    --title-color: var(--primary-color);
+    --subtitle-color: var(--secondary-color);
+
+    /* 🌐 Backgrounds */
+    --bg-color: #ffffff;
+    --border-color: var(--gray-color);
+
+    /* 🔵 Header */
+    --header-bg: var(--blue-color);
+    --header-text: var(--white-color);
+    --header-border: var(--white-color);
+    --header-link-bg: var(--white-color);
+    --header-link-text: var(--blue-color);
+    --header-dropdown-bg: var(--main-color);
+    --header-dropdown-text: var(--primary-color);
+
+    /* 🟤 Sidebar */
+    --sidebar-bg-color: rgb(170, 168, 168);
+    --sidebar-text-color: var(--primary-color);
+    --sidebar-hover-bg-color: var(--pumpkin-color);
+    --sidebar-hover-text-color: var(--white-color);
+
+    /* 🟡 Post Item */
+    --post-bg-color: rgb(244, 244, 244);
+    --post-border-color: rgb(183, 179, 179);
+
+    /* 📄 Post Details */
+    --post-details-bg-color: #ffffff;
+    --post-details-title-color: var(--primary-color);
+    --post-details-desc-color: var(--primary-color);
+    --post-details-author-color: var(--dark-color);
+    --post-details-meta-color: var(--gray-color);
+    --post-details-icon-color: var(--blue-color);
+
+    /* 📝 Forms */
+    --form-border-color: var(--gray-color);
+    --form-input-bg: #fff;
+    --form-text-color: #000;
+    --form-upload-bg: var(--gray-color);
+    --form-btn-bg: var(--primary-color);
+    --form-btn-text: var(--white-color);
+    --form-title-color: var(--primary-color);
+
+    /* 👤 Profile */
+    --profile-header-bg: var(--primary-color);
+    --profile-username-color: var(--white-color);
+    --profile-bio-color: var(--main-color);
+    --profile-joined-label-color: var(--gray-color);
+    --profile-joined-date-color: var(--green-sea-color);
+    --profile-update-btn-bg: var(--green-color);
+    --profile-update-btn-text: var(--white-color);
+    --profile-posts-title-color: var(--primary-color);
+
+    --delete-btn-bg: var(--white-color);
+    --delete-btn-text: var(--red-color);
+    --delete-btn-border: var(--red-color);
+
+    --upload-btn-bg: #eee;
+    --upload-btn-text: var(--primary-color);
+    --upload-btn-border: var(--primary-color);
+
+    /* 🪟 Modal */
+    --modal-bg-color: var(--white-color);
+    --modal-text-color: #000;
+    --modal-input-bg: #fff;
+    --modal-input-text: #000;
+    --modal-input-border: var(--gray-color);
+    --modal-btn-bg: var(--green-sea-color);
+    --modal-btn-text: var(--white-color);
+
+    /* 📊 Admin */
+    --admin-card-link-bg: var(--green-sea-color);
+    --admin-card-link-text: var(--white-color);
+    --admin-icon-bg: var(--secondary-color);
+    --admin-icon-text: var(--white-color);
+
+    /* 📋 Table */
+    --table-header-bg: var(--primary-color);
+    --table-header-text: var(--white-color);
+    --table-row-hover-bg: rgba(0, 0, 0, 0.05);
+    --table-edit-btn-bg: var(--green-color);
+    --table-delete-btn-bg: var(--red-color);
+    --table-btn-text: var(--white-color);
+    --table-edit-btn-hover-bg: green;
+    --table-delete-btn-hover-bg: red;
+
+    /* 🧭 Category Page */
+    --category-title-color: var(--title-color);
+    --category-border-color: var(--gray-color);
+    --category-not-found-text: var(--text-color);
+    --category-not-found-highlight: var(--red-color);
+    --category-link-color: var(--blue-color);
+
+    /* ❌ Not Found Page */
+    --verify-icon-color: var(--green-color);
+    --verify-title-color: var(--green-color);
+    --verify-link-bg: var(--primary-color);
+    --verify-link-text: var(--white-color);
+    --verify-not-found-color: var(--red-color);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+.light {
+    /* 🌐 Backgrounds + Typography */
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --title-color: var(--primary-color);
+    --subtitle-color: var(--secondary-color);
+    --border-color: var(--gray-color);
+
+    /* 🔵 Header */
+    --header-bg: var(--blue-color);
+    --header-text: var(--white-color);
+    --header-border: var(--white-color);
+    --header-link-bg: var(--white-color);
+    --header-link-text: var(--blue-color);
+    --header-dropdown-bg: var(--main-color);
+    --header-dropdown-text: var(--primary-color);
+
+    /* 🟤 Sidebar */
+    --sidebar-bg-color: rgb(170, 168, 168);
+    --sidebar-text-color: var(--primary-color);
+    --sidebar-hover-bg-color: var(--pumpkin-color);
+    --sidebar-hover-text-color: var(--white-color);
+
+    /* 🟡 Post Item */
+    --post-bg-color: rgb(244, 244, 244);
+    --post-border-color: rgb(183, 179, 179);
+
+    /* 📝 Forms */
+    --form-border-color: var(--gray-color);
+    --form-input-bg: #fff;
+    --form-text-color: #000;
+    --form-upload-bg: var(--gray-color);
+    --form-btn-bg: var(--primary-color);
+    --form-btn-text: var(--white-color);
+    --form-title-color: var(--primary-color);
+
+    /* 👤 Profile */
+    --profile-header-bg: var(--primary-color);
+    --profile-username-color: var(--white-color);
+    --profile-bio-color: var(--main-color);
+    --profile-joined-label-color: var(--gray-color);
+    --profile-joined-date-color: var(--green-sea-color);
+    --profile-update-btn-bg: var(--green-color);
+    --profile-update-btn-text: var(--white-color);
+    --profile-posts-title-color: var(--primary-color);
+
+    --delete-btn-bg: var(--white-color);
+    --delete-btn-text: var(--red-color);
+    --delete-btn-border: var(--red-color);
+
+    --upload-btn-bg: #eee;
+    --upload-btn-text: var(--primary-color);
+    --upload-btn-border: var(--primary-color);
+
+    /* 🪟 Modal */
+    --modal-bg-color: var(--white-color);
+    --modal-text-color: #000;
+    --modal-input-bg: #fff;
+    --modal-input-text: #000;
+    --modal-input-border: var(--gray-color);
+    --modal-btn-bg: var(--green-sea-color);
+    --modal-btn-text: var(--white-color);
+
+    /* 📊 Admin */
+    --admin-card-link-bg: var(--green-sea-color);
+    --admin-card-link-text: var(--white-color);
+    --admin-icon-bg: var(--secondary-color);
+    --admin-icon-text: var(--white-color);
+}
+
+.dark {
+    /* 🌐 Backgrounds + Typography */
+    --bg-color: #121212;
+    --text-color: #ddd;
+    --title-color: #f1f1f1;
+    --subtitle-color: #bbbbbb;
+    --border-color: #444;
+
+    /* 🔵 Header */
+    --header-bg: #0a192f;
+    --header-text: #f1f1f1;
+    --header-border: #2a2a2a;
+    --header-link-bg: #1e293b;
+    --header-link-text: #00bcd4;
+    --header-dropdown-bg: #2a2a2a;
+    --header-dropdown-text: #f1f1f1;
+
+    /* 🟤 Sidebar */
+    --sidebar-bg-color: #2c2c2c;
+    --sidebar-text-color: #ddd;
+    --sidebar-hover-bg-color: #ff8c42;
+    --sidebar-hover-text-color: #111;
+
+    /* 🟡 Post Item */
+    --post-bg-color: #2c2c2c;
+    --post-border-color: #444;
+
+    /* 📄 Post Details */
+    --post-details-bg-color: #1e1e1e;
+    --post-details-title-color: #f1f1f1;
+    --post-details-desc-color: #cccccc;
+    --post-details-author-color: #eee;
+    --post-details-meta-color: #999;
+    --post-details-icon-color: #00bcd4;
+
+    /* 📝 Forms */
+    --form-border-color: #444;
+    --form-input-bg: #1f1f1f;
+    --form-text-color: #ddd;
+    --form-upload-bg: #333;
+    --form-btn-bg: #ff8c42;
+    --form-btn-text: #111;
+    --form-title-color: #f1f1f1;
+
+    /* 👤 Profile */
+    --profile-header-bg: #1f1f1f;
+    --profile-username-color: #f1f1f1;
+    --profile-bio-color: #bbbbbb;
+    --profile-joined-label-color: #999;
+    --profile-joined-date-color: #27ae60;
+    --profile-update-btn-bg: #27ae60;
+    --profile-update-btn-text: #111;
+    --profile-posts-title-color: #f1f1f1;
+
+    --delete-btn-bg: transparent;
+    --delete-btn-text: #ff6b6b;
+    --delete-btn-border: #ff6b6b;
+
+    --upload-btn-bg: #333;
+    --upload-btn-text: #f1f1f1;
+    --upload-btn-border: #888;
+
+    /* 🪟 Modal */
+    --modal-bg-color: #1f1f1f;
+    --modal-text-color: #ddd;
+    --modal-input-bg: #2a2a2a;
+    --modal-input-text: #eee;
+    --modal-input-border: #444;
+    --modal-btn-bg: #27ae60;
+    --modal-btn-text: #111;
+
+    /* 📊 Admin */
+    --admin-card-link-bg: var(--green-sea-color);
+    --admin-card-link-text: #111;
+    --admin-icon-bg: #333;
+    --admin-icon-text: #eee;
+
+    /* 📋 Table */
+    --table-row-hover-bg: rgba(255, 255, 255, 0.08);
+
+    /* 🧭 Category */
+    --category-title-color: #f1f1f1;
+    --category-border-color: #444;
+    --category-not-found-text: #ddd;
+    --category-not-found-highlight: #ff6b6b;
+    --category-link-color: #00bcd4;
+
+    /* ❌ Not Found */
+    --verify-icon-color: #27ae60;
+    --verify-title-color: #27ae60;
+    --verify-link-bg: var(--green-sea-color);
+    --verify-link-text: #111;
+    --verify-not-found-color: #ff6b6b;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+
+/* Some Global Classes For icons */
+.bi-pencil-square {
+    color: var(--green-sea-color);
+    margin-right: 15px;
+}
+
+.bi-trash-fill {
+    color: var(--red-color);
+}
+
+/* Scrollbar Classes For Google Chrome */
+html::-webkit-scrollbar {
+    width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: rgb(187, 179, 179);
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--dark-color);
+    border-radius: 15px;
+}

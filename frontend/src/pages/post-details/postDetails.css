@@ -1,0 +1,118 @@
+.post-details {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: var(--post-details-bg-color);
+    transition: background-color 0.3s;
+}
+
+.post-details-image-wrapper {
+    max-height: 400px;
+    margin-bottom: 60px;
+}
+
+.post-details-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.update-post-image-form {
+    margin-top: 10px;
+}
+
+.update-post-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--post-details-icon-color);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.update-post-label i {
+    font-size: 21px;
+    margin-right: 3px;
+}
+
+.update-post-image-form button {
+    margin-left: 10px;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    border: 1px solid var(--post-details-icon-color);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 2px 5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.post-details-title {
+    text-align: center;
+    font-size: clamp(30px, 2.5vw, 40px);
+    color: var(--post-details-title-color);
+    text-transform: capitalize;
+    margin: 15px 0;
+    transition: color 0.3s;
+}
+
+.post-details-user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.post-details-user-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-details-user {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.post-details-user strong a {
+    font-size: 21px;
+    color: var(--post-details-author-color);
+    transition: color 0.3s;
+}
+
+.post-details-user span {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--post-details-meta-color);
+    transition: color 0.3s;
+}
+
+.post-details-description {
+    font-size: 21px;
+    line-height: 1.8;
+    color: var(--post-details-desc-color);
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.post-details-icon-wrapper {
+    margin: 15px 0;
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--post-details-icon-color);
+    transition: color 0.3s;
+}
+
+.post-details-icon-wrapper i {
+    cursor: pointer;
+}
+
+.post-details-info-write {
+    font-size: 17px;
+    color: var(--post-details-meta-color);
+    transition: color 0.3s;
+}
