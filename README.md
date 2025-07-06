@@ -76,7 +76,7 @@ CLIENT_DOMAIN=http://localhost:3000
 Start the backend:
 
 cd backend
-npm start
+npm run dev
 
 Start the frontend:
 
