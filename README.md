@@ -1,47 +1,40 @@
-Blog App
+# Blog App
 
 A full-featured blog application built with the MERN stack that allows users to register, create posts, comment, and interact with each other.
 
-Features
+## Features
 
-User registration with email verification
+- User registration with email verification  
+- Create, edit, and delete posts with categories and image uploads  
+- Commenting and nested replies  
+- Likes on posts and comments  
+- User profiles with followers system  
+- Admin dashboard to manage users, posts, categories, and comments  
+- Dark & light mode toggle  
+- Password reset via email
 
-Create, edit, and delete posts with categories and image uploads
+## Tech Stack
 
-Commenting and nested replies
-
-Likes on posts and comments
-
-User profiles with followers system
-
-Admin dashboard to manage users, posts, categories, and comments
-
-Dark & light mode toggle
-
-Password reset via email
-
-
-Tech Stack
-
-Frontend:
+*Frontend:*  
 React.js, React Router DOM, Redux Toolkit, Axios, React Toastify, SweetAlert, Bootstrap, React Bootstrap, Moment.js, React Moment, React Loader Spinner
 
-Backend:
+*Backend:*  
 Node.js, Express.js, MongoDB, Mongoose, Joi, Joi Password Complexity, BcryptJS, JSON Web Token (JWT), Multer, Cloudinary, Nodemailer
 
-Security & Optimization:
+*Security & Optimization:*  
 Helmet, CORS, Express Rate Limit, Express Mongo Sanitize, XSS-Clean, HPP, dotenv
 
-Other Tools:
-Cloudinary for image storage
+*Other Tools:*  
+Cloudinary for image storage  
 Nodemailer for email verification & password reset
 
-Getting Started
+## Getting Started
 
 To run this project locally, follow these steps:
 
-1. Clone the repository
+### 1. Clone the repository
 
+```bash
 git clone https://github.com/Ali-Haggag7/blog-pro.git
 cd blog-pro
 
