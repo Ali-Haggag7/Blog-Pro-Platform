@@ -52,22 +52,20 @@ npm install
 
 3. Add environment variables
 
-You’ll need to create two .env files:
+You’ll need to create one .env file:
 
 In backend/.env, include:
 
-MONGO_URI=your_mongo_connection_string  
+PORT=8000
+MONGO_URI=your_mongo_connection_string
+NODE_ENV=development
 JWT_SECRET=your_jwt_secret  
-EMAIL_USER=your_email_address  
-EMAIL_PASS=your_email_password_or_app_password  
+APP_EMAIL_ADDRESS=your_email_address  
+APP_EMAIL_PASSWORD=your_email_password_or_app_password  
 CLOUDINARY_CLOUD_NAME=your_cloud_name  
 CLOUDINARY_API_KEY=your_api_key  
 CLOUDINARY_API_SECRET=your_api_secret  
-FRONTEND_URL=http://localhost:3000
-
-In frontend/.env, you can add:
-
-REACT_APP_BACKEND_URL=http://localhost:5000
+CLIENT_DOMAIN=http://localhost:3000
 
 > Make sure to replace placeholders with your actual config values.
 
