@@ -2,7 +2,8 @@
 
 > **Blog Pro** is a robust **Content Management System (CMS)** built with the MERN Stack. It features comprehensive role-based access control, real-time interactivity, and enterprise-grade security tailored for scalability.
 
-[![Blog Pro Preview](https://placehold.co/800x400/1a1a1a/FFF?text=Project+Preview)](https://github.com/Ali-Haggag7)
+[![Blog Pro Preview](![blor-pro](https://github.com/user-attachments/assets/0f0ba138-81d4-4fda-a83b-04da280bff56)
+)](https://github.com/Ali-Haggag7)
 *(Click the image above to view the project)*
 
 ## 🚀 Live Demo
