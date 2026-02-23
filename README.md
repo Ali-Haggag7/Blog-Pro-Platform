@@ -4,8 +4,6 @@
 
 [![Blog Pro Preview](blog-pro.jpeg)](https://Blog-Pro-Platform.vercel.app/)
 
----
-
 ## ✨ Key Features
 
 ### 1️⃣ Security & Performance (Backend) 🛡️
