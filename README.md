@@ -4,9 +4,6 @@
 
 [![Blog Pro Preview](blog-pro.jpeg)](https://Blog-Pro-Platform.vercel.app/)
 
-## 🚀 Live Demo
-[Click here to visit Blog Pro](http://localhost:3000)
-
 ---
 
 ## ✨ Key Features
