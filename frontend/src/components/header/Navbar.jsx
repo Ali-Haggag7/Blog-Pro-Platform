@@ -8,16 +8,13 @@ const Navbar = ({ toggle, setToggle }) => {
     const { user } = useSelector(state => state.auth)
     const { mode } = useSelector(state => state.theme)
 
-    // ✅ تفعيل السويتش
+    // Toggle Theme Handler
     const handleToggleTheme = () => {
         dispatch(toggleTheme())
     }
 
     return (
-        <nav
-            style={{ clipPath: toggle && "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            className="navbar"
-        >
+        <nav className={`navbar ${toggle ? "show" : ""}`}>
             <ul className="nav-links">
                 <Link to="/" onClick={() => setToggle(false)} className="nav-link">
                     <i className="bi bi-house"></i> Home
@@ -40,7 +37,7 @@ const Navbar = ({ toggle, setToggle }) => {
                     )
                 }
 
-                {/* 🌗 زر التبديل بين المودات */}
+                {/* Theme Toggle Button */}
                 <li onClick={handleToggleTheme} className="nav-link theme-toggle" style={{ cursor: "pointer" }}>
                     {
                         mode === "light" ? (

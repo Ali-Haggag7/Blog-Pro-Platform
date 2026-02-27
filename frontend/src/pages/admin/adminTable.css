@@ -1,152 +1,194 @@
+/* =========================================
+   📊 Admin Tables (Users, Posts, Categories)
+   ========================================= */
 .table-container {
     display: flex;
-    height: calc(100vh - 130px);
+    height: calc(100vh - 80px);
+    /* Adjusted for new header height */
     overflow: hidden;
+    background-color: var(--bg-color);
 }
 
 .table-wrapper {
     flex: 10;
-    padding: 20px;
-    overflow-y: scroll;
+    padding: 40px;
+    overflow-y: auto;
     background-color: var(--bg-color);
-    color: var(--text-color);
 }
 
 .table-title {
-    font-size: 30px;
-    color: var(--text-color);
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--gray-color);
-    padding-bottom: 3px;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
     width: max-content;
+    position: relative;
 }
 
+.table-title::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50%;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* --- The Table Element --- */
 .table {
     width: 100%;
     text-align: left;
     border-collapse: collapse;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    /* Keeps the rounded corners even with the header */
+    box-shadow: var(--box-shadow-sm);
+    border: 1px solid var(--border-color);
 }
 
 th,
 td {
-    border: 1px solid var(--gray-color);
-    padding: 10px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-color);
+    /* Only horizontal borders for a modern look */
 }
 
+/* Table Header (Sticky) */
 th {
-    background-color: var(--table-header-bg);
-    color: var(--table-header-text);
+    background-color: var(--input-bg);
+    /* Soft background for header */
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-tr:hover {
-    background-color: var(--table-row-hover-bg);
+/* Table Rows */
+tr:last-child td {
+    border-bottom: none;
+    /* Remove border from very last row */
 }
 
+tr:hover td {
+    background-color: rgba(79, 70, 229, 0.03);
+    /* Extremely subtle primary tint on hover */
+}
+
+/* --- Table Cells Content --- */
 .table-image {
     display: flex;
     align-items: center;
+    gap: 12px;
 }
 
 .table-user-image {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid var(--border-color);
 }
 
 .table-username {
-    font-weight: 500;
-    font-size: 17px;
-    margin-left: 5px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-primary);
 }
 
+/* --- Action Buttons (Edit/Delete) --- */
 .table-button-group {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 10px;
 }
 
 .table-button-group button {
     border: none;
-    background-color: var(--table-edit-btn-bg);
-    color: var(--table-btn-text);
-    border-radius: 5px;
-    font-size: 17px;
-    font-weight: 500;
-    padding: 5px;
+    border-radius: var(--border-radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all var(--transition-speed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.table-button-group button:last-child {
-    background-color: var(--table-delete-btn-bg);
+/* View/Edit Button (Primary) */
+.table-button-group button:first-child {
+    background-color: var(--primary-color);
+    color: #ffffff;
 }
 
 .table-button-group button:first-child:hover {
-    background-color: var(--table-edit-btn-hover-bg);
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* Delete Button (Danger) */
+.table-button-group button:last-child {
+    background-color: transparent;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
 }
 
 .table-button-group button:last-child:hover {
-    background-color: var(--table-delete-btn-hover-bg);
+    background-color: var(--danger-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-sm);
 }
 
 .table-button-group button a {
-    color: var(--table-btn-text);
+    color: inherit;
+    /* Inherits the color from the button */
+    text-decoration: none;
 }
 
-/* Media Queries */
-@media (max-width: 720px) {
+/* =========================================
+   📱 Media Queries (Responsive Design)
+   ========================================= */
+@media (max-width: 990px) {
     .table-wrapper {
-        padding: 15px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Magic trick: Makes the table horizontally scrollable on small screens instead of squishing it */
+    .table-container {
+        display: block;
+        /* Removes flex to allow scrolling */
     }
 
-    .table-button-group {
-        flex-wrap: wrap;
+    .table-wrapper {
+        overflow-x: auto;
+        /* Enables horizontal scroll */
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scroll on iOS */
     }
 
-    .table-button-group button {
-        width: 90%;
-        margin: 10px 0;
-    }
-
-    th,
-    td {
-        padding: 5px;
-    }
-
-    .table-image {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .table {
+        min-width: 600px;
+        /* Forces table to stay wide enough to read */
     }
 }
 
 @media (max-width: 520px) {
-    .table {
-        text-align: center;
-    }
-
-    .table-wrapper {
-        padding: 5px;
-    }
-
-    th,
-    td {
-        padding: 2px;
-    }
-
-    .table-button-group button {
-        font-size: 15px;
-    }
-
-    .table-user-image {
-        width: 35px;
-        height: 35px;
-    }
-
-    .table-username {
-        font-size: 16px;
+    .table-title {
+        font-size: 24px;
     }
 }

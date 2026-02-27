@@ -1,32 +1,60 @@
+/* =========================================
+   🧭 Category Page
+   ========================================= */
 .category {
-    min-height: calc(100vh - 130px);
-    padding: 20px;
+    min-height: calc(100vh - 80px);
+    padding: 40px 20px;
     background-color: var(--bg-color);
-    color: var(--text-color);
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .category-title {
-    margin-bottom: 15px;
-    color: var(--text-color);
-    padding-bottom: 5px;
-    border-bottom: 2px solid var(--category-border-color);
-    font-size: 30px;
-    width: max-content;
+    margin-bottom: 40px;
+    color: var(--text-primary);
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+    font-size: 32px;
+    font-weight: 800;
+    position: relative;
+    text-transform: capitalize;
 }
 
+/* Modern Title Underline */
+.category-title::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Empty State (No posts in category) */
 .category-not-found {
-    font-size: 30px;
-    margin: 20px 0;
-    color: var(--text-color);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 40px 0 20px;
+    color: var(--text-secondary);
+    text-align: center;
 }
 
 .category-not-found span {
-    color: var(--category-not-found-highlight);
+    color: var(--danger-color);
 }
 
 .category-not-found-link {
-    font-size: 21px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: block;
+    text-align: center;
+    transition: color var(--transition-speed);
+}
+
+.category-not-found-link:hover {
+    color: var(--primary-hover);
     text-decoration: underline;
-    font-weight: 500;
-    color: var(--category-link-color);
 }

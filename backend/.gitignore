@@ -1,0 +1,15 @@
+# 🔒 Sensitive Data (The most important part)
+.env
+
+# 📦 Dependencies
+node_modules/
+package-lock.json
+
+# 📂 Uploads (Don't push locally uploaded images)
+images/
+
+# 🛠️ Logs and Temp files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store

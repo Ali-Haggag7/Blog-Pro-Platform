@@ -1,34 +1,59 @@
+/* =========================================
+   ✍️ Add Comment Form
+   ========================================= */
 .add-comment {
-    margin: 30px 0;
+    margin: 40px 0 20px;
+    background-color: var(--surface-color);
+    padding: 20px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow-sm);
 }
 
 .add-comment-input {
     width: 100%;
-    font-size: 21px;
-    border: 1px solid var(--form-border-color);
-    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    padding: 15px;
     margin-bottom: 15px;
-    border-radius: 5px;
-    background-color: var(--form-input-bg);
-    color: var(--form-text-color);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    transition: border-color var(--transition-speed);
+    font-family: inherit;
+}
+
+.add-comment-input:focus {
+    border-color: var(--primary-color);
     outline: none;
 }
 
 .add-comment-input::placeholder {
-    color: var(--gray-color);
+    color: var(--text-secondary);
 }
 
 .add-comment-btn {
-    background-color: var(--form-btn-bg);
-    color: var(--form-btn-text);
-    font-size: 18px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 20px;
-    border: none;
-    transition: background-color 0.3s ease;
+    padding: 10px 25px;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-speed);
+    float: right;
+    /* Keeps the button neatly on the right */
 }
 
 .add-comment-btn:hover {
-    background-color: var(--pumpkin-color);
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* Clearfix for the floated button */
+.add-comment::after {
+    content: "";
+    display: table;
+    clear: both;
 }

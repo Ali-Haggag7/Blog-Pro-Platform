@@ -1,3 +1,6 @@
+/* =========================================
+   🔵 Header & Navigation
+   ========================================= */
 .header {
     width: 100%;
     height: 80px;
@@ -6,134 +9,222 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--header-bg);
-    position: relative;
-    z-index: 99;
-    border-bottom: 2px solid var(--header-border);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s, border-color 0.3s;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow-sm);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
 }
 
-/* Header Left */
+/* --- Header Left & Logo --- */
 .header-left {
     display: flex;
     align-items: center;
+    gap: 20px;
 }
 
 .header-logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: var(--header-text);
-    text-decoration: underline;
-    transition: color 0.3s;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    transition: opacity var(--transition-speed);
 }
 
+.header-logo:hover {
+    opacity: 0.8;
+}
+
+/* --- Mobile Menu Icon --- */
 .header-menu {
     display: none;
 }
 
 .header-menu i {
-    font-size: 40px;
-    color: var(--header-text);
+    font-size: 30px;
+    color: var(--text-primary);
     cursor: pointer;
-    transition: color 0.3s;
+    transition: color var(--transition-speed);
 }
 
-/* Navbar */
+.header-menu i:hover {
+    color: var(--primary-color);
+}
+
+/* --- Navbar & Links --- */
 .nav-links {
     display: flex;
     align-items: center;
+    gap: 25px;
 }
 
 .nav-link {
-    margin: 0 12px;
+    position: relative;
     cursor: pointer;
-    font-size: 21px;
+    font-size: 16px;
     font-weight: 500;
-    color: var(--header-text);
-    transition: color 0.3s;
+    color: var(--text-secondary);
+    transition: color var(--transition-speed);
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .nav-link:hover {
-    color: var(--main-color);
+    color: var(--primary-color);
+}
+
+/* Modern Hover Underline Animation */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed);
+    border-radius: 2px;
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 .nav-link i {
-    margin-right: 3px;
-    font-size: 24px;
+    font-size: 18px;
 }
 
-/* Header right */
+/* --- Header Right (Auth & Profile) --- */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .header-right-link {
-    margin-left: 10px;
-    font-size: 21px;
-    font-weight: 500;
-    background-color: var(--header-link-bg);
-    color: var(--header-link-text);
-    border-radius: 10px;
-    padding: 5px 10px;
-    transition: background-color 0.3s, color 0.3s;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: var(--border-radius-md);
+    padding: 8px 18px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all var(--transition-speed);
+    border: 1px solid transparent;
 }
 
 .header-right-link:hover {
-    background-color: var(--main-color);
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-sm);
+    color: #ffffff;
 }
 
 .header-right-link i {
-    margin-right: 5px;
+    font-size: 16px;
 }
 
+/* --- User Profile & Dropdown --- */
 .header-right-user-info {
     display: flex;
     align-items: center;
+    gap: 12px;
     position: relative;
 }
 
 .header-right-username {
-    font-size: 21px;
-    font-weight: 500;
-    color: var(--main-color);
-    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
     text-transform: capitalize;
     cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+.header-right-username:hover {
+    color: var(--primary-color);
 }
 
 .header-right-user-photo {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     object-fit: cover;
     border-radius: 50%;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: border-color var(--transition-speed);
+}
+
+.header-right-user-photo:hover {
+    border-color: var(--primary-color);
 }
 
 .header-right-dropdown {
     position: absolute;
-    right: 50%;
-    top: 100%;
-    background-color: var(--header-dropdown-bg);
-    border: 1px solid var(--header-border);
-    border-radius: 5px;
-    padding: 5px;
-    width: 150px;
+    right: 0;
+    top: 125%;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 10px;
+    width: 180px;
+    box-shadow: var(--box-shadow-md);
     text-align: left;
-    transition: background-color 0.3s;
+    transition: all var(--transition-speed);
+    z-index: 100;
+
+    /* Animation defaults (Controlled by React state usually) */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+}
+
+/* Add 'active' class via React when dropdown is open */
+.header-right-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .header-dropdown-item {
-    color: var(--header-dropdown-text);
+    color: var(--text-secondary);
     font-weight: 500;
-    font-size: 21px;
-    margin-top: 15px;
+    font-size: 14px;
+    padding: 10px 12px;
+    margin-bottom: 4px;
     cursor: pointer;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all var(--transition-speed);
 }
 
-/* Media Queries */
+.header-dropdown-item:last-child {
+    margin-bottom: 0;
+}
+
+.header-dropdown-item:hover {
+    background-color: var(--input-bg);
+    color: var(--primary-color);
+}
+
+/* =========================================
+   📱 Media Queries (Responsive Design)
+   ========================================= */
 @media (max-width: 990px) {
     .header-left {
         flex-direction: row-reverse;
+        gap: 15px;
     }
 
     .header-menu {
         display: block;
-        margin-right: 20px;
     }
 
     .navbar {
@@ -142,38 +233,55 @@
         top: 100%;
         width: 100%;
         background-color: var(--header-bg);
-        transition: all .7s ease-in-out;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--box-shadow-md);
+        transition: all 0.4s ease-in-out;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        padding: 0;
+        z-index: 9999;
+    }
+
+    /* Add 'active' class via React for mobile menu */
+    .navbar.show {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        padding: 20px 0;
     }
 
     .nav-links {
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
+        gap: 20px;
         padding-left: 30px;
     }
 
-    .nav-link {
-        margin: 0;
-        margin-bottom: 15px;
+    .nav-link::after {
+        display: none;
+        /* Disable underline animation on mobile */
     }
 }
 
 @media (max-width: 520px) {
     .header {
-        padding: 0 10px;
+        padding: 0 15px;
+        height: 70px;
     }
 
     .header-logo {
-        font-size: 19px;
+        font-size: 22px;
     }
 
     .header-right-link {
-        font-size: 17px;
-        padding: 5px 7px;
+        font-size: 13px;
+        padding: 6px 12px;
     }
 
-    .header-menu {
-        margin-right: 10px;
+    .header-right-user-photo {
+        width: 35px;
+        height: 35px;
+    }
+
+    .header-right-username {
+        display: none;
+        /* Hide username on very small screens for clean UI */
     }
 }

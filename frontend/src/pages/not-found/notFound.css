@@ -1,34 +1,50 @@
+/* =========================================
+   ❌ 404 Not Found Page
+   ========================================= */
 .not-found {
     width: 100%;
-    height: calc(100vh - 130px);
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: var(--bg-color);
+    text-align: center;
+    padding: 20px;
 }
 
 .not-found-title {
-    font-size: 70px;
-    font-weight: bold;
-    color: var(--red-color);
+    font-size: 140px;
+    font-weight: 900;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 6px 6px 0 rgba(79, 70, 229, 0.1);
+    /* Cool 3D effect */
 }
 
 .not-found-text {
-    font-size: 30px;
-    color: var(--text-color);
-    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 35px;
 }
 
 .not-found-link {
-    display: block;
-    color: var(--white-color);
-    background-color: var(--secondary-color);
-    font-size: 21px;
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 5px;
+    display: inline-block;
+    color: #ffffff;
+    background-color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px 35px;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-speed);
+    box-shadow: var(--box-shadow-sm);
 }
 
 .not-found-link:hover {
-    background-color: var(--primary-color);
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-md);
+    color: #ffffff;
 }

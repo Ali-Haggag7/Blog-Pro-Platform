@@ -1,126 +1,189 @@
+/* =========================================
+   📰 Posts List & Cards
+   ========================================= */
 .post-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
     flex: 9;
+    align-items: start;
+    /* Prevents cards from stretching vertically if one is taller */
 }
 
 .post-item {
     width: 100%;
-    background-color: var(--post-bg-color);
-    margin-bottom: 40px;
-    padding: 15px;
-    border-radius: 5px;
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow-sm);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    border: 1px solid var(--post-border-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    overflow: hidden;
+    /* Keeps the image inside the border radius */
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
+/* Card Lift Animation on Hover */
+.post-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+/* --- Image Section --- */
 .post-item-image-wrapper {
     width: 100%;
-    margin-bottom: 15px;
+    overflow: hidden;
+    /* Essential for the image zoom effect */
 }
 
 .post-item-image {
     width: 100%;
-    height: 300px;
-    object-fit: contain;
-    border-radius: 5px;
+    height: 350px;
+    object-fit: cover;
+    /* 'Cover' looks much more professional than 'contain' for cards */
+    transition: transform 0.6s ease;
 }
 
+.post-item:hover .post-item-image {
+    transform: scale(1.05);
+    /* Subtle image zoom on hover */
+}
+
+/* --- Content Section --- */
 .post-item-info-wrapper {
-    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
+/* Meta info (Author & Date) */
 .post-item-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 5px;
-    border-bottom: 1px solid var(--gray-color);
-    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
 }
 
 .post-item-author strong {
-    color: var(--green-sea-color);
-    font-size: 18px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 6px;
 }
 
-.post-item-author .post-item-username {
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--title-color);
+.post-item-username {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-color);
     text-transform: capitalize;
 }
 
 .post-item-date {
-    font-weight: bold;
+    font-weight: 500;
     font-size: 14px;
-    color: var(--green-sea-color);
+    color: var(--text-secondary);
 }
 
+/* Title & Category */
 .post-item-details {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    padding: 5px;
+    gap: 15px;
 }
 
 .post-item-title {
-    color: var(--title-color);
-    text-align: center;
-    font-size: 25px;
-    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 800;
     text-transform: capitalize;
+    line-height: 1.3;
+    flex: 1;
+    transition: color var(--transition-speed);
 }
 
-.post-item-category {
-    background-color: var(--pumpkin-color);
-    color: var(--white-color);
-    padding: 4px 7px;
-    border-radius: 15px;
-    font-size: 15px;
-    font-weight: bold;
+.post-item-title:hover {
+    color: var(--primary-color);
     cursor: pointer;
 }
 
+.post-item-category {
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color var(--transition-speed);
+}
+
+.post-item-category:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Description */
 .post-item-description {
-    font-size: 17px;
-    line-height: 1.9;
-    color: var(--subtitle-color);
-    font-weight: 500;
-    padding: 5px;
-    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
+    /* Keep it clean with exactly 3 lines */
     -webkit-box-orient: vertical;
 }
 
+/* Read More Button (Ghost Button Style) */
 .post-item-link {
-    background-color: var(--green-color);
-    color: var(--white-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     width: 100%;
     display: block;
     text-align: center;
-    font-size: 21px;
-    border-radius: 5px;
-    padding: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    padding: 10px;
+    margin-top: 5px;
+    transition: all var(--transition-speed);
 }
 
+.post-item-link:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
 
-/* Media Queries */
-@media (max-width: 720px) {
-    .post-item {
-        padding: 10px;
+/* =========================================
+   📱 Media Queries (Responsive Design)
+   ========================================= */
+@media (max-width: 768px) {
+    .post-list {
+        gap: 20px;
     }
 
     .post-item-image {
-        object-fit: cover;
+        height: 250px;
+    }
+
+    .post-item-info-wrapper {
+        padding: 18px;
+        gap: 12px;
+    }
+
+    .post-item-title {
+        font-size: 20px;
+    }
+
+    .post-item-details {
+        flex-direction: column;
+        /* Stack category below title on mobile */
+        align-items: flex-start;
+        gap: 10px;
     }
 }

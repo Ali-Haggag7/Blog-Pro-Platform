@@ -1,336 +1,196 @@
 :root {
-    /* 🌈 Base Colors */
-    --white-color: #ffffff;
-    --black-color: #000000;
-    --gray-color: #778697;
-    --main-color: #efefef;
-    --primary-color: #1d2d3d;
-    --secondary-color: #495e74;
-    --dark-color: #292b2c;
+    /* 🎨 Base Brand Colors */
+    --primary-color: #4f46e5;
+    /* Indigo 600 - Modern & Trustworthy */
+    --primary-hover: #4338ca;
+    /* Indigo 700 */
+    --secondary-color: #64748b;
+    /* Light Blue 500 */
 
-    --blue-color: #0275d8;
-    --green-color: #27ae60;
-    --green-sea-color: #16a085;
-    --pumpkin-color: #d35400;
-    --red-color: #d9534f;
+    /* 🚦 State Colors */
+    --success-color: #10b981;
+    /* Emerald 500 */
+    --danger-color: #ef4444;
+    /* Red 500 */
+    --warning-color: #f59e0b;
+    /* Amber 500 */
 
-    /* ✍️ Typography */
-    --text-color: var(--black-color);
-    --title-color: var(--primary-color);
-    --subtitle-color: var(--secondary-color);
+    /* 📐 Global UI Variables */
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+    --transition-speed: 0.3s ease-in-out;
 
-    /* 🌐 Backgrounds */
-    --bg-color: #ffffff;
-    --border-color: var(--gray-color);
+    /* 👻 Shadows */
+    --box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --box-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
-    /* 🔵 Header */
-    --header-bg: var(--blue-color);
-    --header-text: var(--white-color);
-    --header-border: var(--white-color);
-    --header-link-bg: var(--white-color);
-    --header-link-text: var(--blue-color);
-    --header-dropdown-bg: var(--main-color);
-    --header-dropdown-text: var(--primary-color);
+    /* ☀️ LIGHT THEME (Default) */
+    --bg-color: #f9fafb;
+    /* Gray 50 - Soft background */
+    --surface-color: #ffffff;
+    /* White - For cards and modals */
 
-    /* 🟤 Sidebar */
-    --sidebar-bg-color: rgb(170, 168, 168);
-    --sidebar-text-color: var(--primary-color);
-    --sidebar-hover-bg-color: var(--pumpkin-color);
-    --sidebar-hover-text-color: var(--white-color);
+    --text-primary: #111827;
+    /* Gray 900 - High contrast text */
+    --text-secondary: #4b5563;
+    /* Gray 600 - Muted text */
 
-    /* 🟡 Post Item */
-    --post-bg-color: rgb(244, 244, 244);
-    --post-border-color: rgb(183, 179, 179);
+    --border-color: #e5e7eb;
+    /* Gray 200 */
+    --input-bg: #f3f4f6;
+    /* Gray 100 */
 
-    /* 📄 Post Details */
-    --post-details-bg-color: #ffffff;
-    --post-details-title-color: var(--primary-color);
-    --post-details-desc-color: var(--primary-color);
-    --post-details-author-color: var(--dark-color);
-    --post-details-meta-color: var(--gray-color);
-    --post-details-icon-color: var(--blue-color);
-
-    /* 📝 Forms */
-    --form-border-color: var(--gray-color);
-    --form-input-bg: #fff;
-    --form-text-color: #000;
-    --form-upload-bg: var(--gray-color);
-    --form-btn-bg: var(--primary-color);
-    --form-btn-text: var(--white-color);
-    --form-title-color: var(--primary-color);
-
-    /* 👤 Profile */
-    --profile-header-bg: var(--primary-color);
-    --profile-username-color: var(--white-color);
-    --profile-bio-color: var(--main-color);
-    --profile-joined-label-color: var(--gray-color);
-    --profile-joined-date-color: var(--green-sea-color);
-    --profile-update-btn-bg: var(--green-color);
-    --profile-update-btn-text: var(--white-color);
-    --profile-posts-title-color: var(--primary-color);
-
-    --delete-btn-bg: var(--white-color);
-    --delete-btn-text: var(--red-color);
-    --delete-btn-border: var(--red-color);
-
-    --upload-btn-bg: #eee;
-    --upload-btn-text: var(--primary-color);
-    --upload-btn-border: var(--primary-color);
-
-    /* 🪟 Modal */
-    --modal-bg-color: var(--white-color);
-    --modal-text-color: #000;
-    --modal-input-bg: #fff;
-    --modal-input-text: #000;
-    --modal-input-border: var(--gray-color);
-    --modal-btn-bg: var(--green-sea-color);
-    --modal-btn-text: var(--white-color);
-
-    /* 📊 Admin */
-    --admin-card-link-bg: var(--green-sea-color);
-    --admin-card-link-text: var(--white-color);
-    --admin-icon-bg: var(--secondary-color);
-    --admin-icon-text: var(--white-color);
-
-    /* 📋 Table */
-    --table-header-bg: var(--primary-color);
-    --table-header-text: var(--white-color);
-    --table-row-hover-bg: rgba(0, 0, 0, 0.05);
-    --table-edit-btn-bg: var(--green-color);
-    --table-delete-btn-bg: var(--red-color);
-    --table-btn-text: var(--white-color);
-    --table-edit-btn-hover-bg: green;
-    --table-delete-btn-hover-bg: red;
-
-    /* 🧭 Category Page */
-    --category-title-color: var(--title-color);
-    --category-border-color: var(--gray-color);
-    --category-not-found-text: var(--text-color);
-    --category-not-found-highlight: var(--red-color);
-    --category-link-color: var(--blue-color);
-
-    /* ❌ Not Found Page */
-    --verify-icon-color: var(--green-color);
-    --verify-title-color: var(--green-color);
-    --verify-link-bg: var(--primary-color);
-    --verify-link-text: var(--white-color);
-    --verify-not-found-color: var(--red-color);
+    /* Layout Specifics */
+    --header-bg: #ffffff;
+    --header-text: var(--text-primary);
+    --sidebar-bg: #ffffff;
+    --post-card-bg: #ffffff;
 }
 
+.dark {
+    /* 🌙 DARK THEME */
+    --bg-color: #0f172a;
+    /* Slate 900 - Deep dark blue */
+    --surface-color: #1e293b;
+    /* Slate 800 - For cards and modals */
+
+    --text-primary: #f8fafc;
+    /* Slate 50 */
+    --text-secondary: #94a3b8;
+    /* Slate 400 */
+
+    --border-color: #334155;
+    /* Slate 700 */
+    --input-bg: #0f172a;
+
+    /* Layout Specifics */
+    --header-bg: #1e293b;
+    --header-text: var(--text-primary);
+    --sidebar-bg: #1e293b;
+    --post-card-bg: #1e293b;
+
+    /* Adjusting Brand Colors for Dark Mode contrast */
+    --primary-color: #6366f1;
+    /* Indigo 500 */
+    --secondary-color: #475569;
+    /* Slate 600 */
+    --primary-hover: #818cf8;
+    /* Indigo 400 */
+
+    /* Adjusting Shadows for Dark Mode */
+    --box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --box-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   🌐 Global Reset & Typography
+   ========================================= */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-}
-
-.light {
-    /* 🌐 Backgrounds + Typography */
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --title-color: var(--primary-color);
-    --subtitle-color: var(--secondary-color);
-    --border-color: var(--gray-color);
-
-    /* 🔵 Header */
-    --header-bg: var(--blue-color);
-    --header-text: var(--white-color);
-    --header-border: var(--white-color);
-    --header-link-bg: var(--white-color);
-    --header-link-text: var(--blue-color);
-    --header-dropdown-bg: var(--main-color);
-    --header-dropdown-text: var(--primary-color);
-
-    /* 🟤 Sidebar */
-    --sidebar-bg-color: rgb(170, 168, 168);
-    --sidebar-text-color: var(--primary-color);
-    --sidebar-hover-bg-color: var(--pumpkin-color);
-    --sidebar-hover-text-color: var(--white-color);
-
-    /* 🟡 Post Item */
-    --post-bg-color: rgb(244, 244, 244);
-    --post-border-color: rgb(183, 179, 179);
-
-    /* 📝 Forms */
-    --form-border-color: var(--gray-color);
-    --form-input-bg: #fff;
-    --form-text-color: #000;
-    --form-upload-bg: var(--gray-color);
-    --form-btn-bg: var(--primary-color);
-    --form-btn-text: var(--white-color);
-    --form-title-color: var(--primary-color);
-
-    /* 👤 Profile */
-    --profile-header-bg: var(--primary-color);
-    --profile-username-color: var(--white-color);
-    --profile-bio-color: var(--main-color);
-    --profile-joined-label-color: var(--gray-color);
-    --profile-joined-date-color: var(--green-sea-color);
-    --profile-update-btn-bg: var(--green-color);
-    --profile-update-btn-text: var(--white-color);
-    --profile-posts-title-color: var(--primary-color);
-
-    --delete-btn-bg: var(--white-color);
-    --delete-btn-text: var(--red-color);
-    --delete-btn-border: var(--red-color);
-
-    --upload-btn-bg: #eee;
-    --upload-btn-text: var(--primary-color);
-    --upload-btn-border: var(--primary-color);
-
-    /* 🪟 Modal */
-    --modal-bg-color: var(--white-color);
-    --modal-text-color: #000;
-    --modal-input-bg: #fff;
-    --modal-input-text: #000;
-    --modal-input-border: var(--gray-color);
-    --modal-btn-bg: var(--green-sea-color);
-    --modal-btn-text: var(--white-color);
-
-    /* 📊 Admin */
-    --admin-card-link-bg: var(--green-sea-color);
-    --admin-card-link-text: var(--white-color);
-    --admin-icon-bg: var(--secondary-color);
-    --admin-icon-text: var(--white-color);
-}
-
-.dark {
-    /* 🌐 Backgrounds + Typography */
-    --bg-color: #121212;
-    --text-color: #ddd;
-    --title-color: #f1f1f1;
-    --subtitle-color: #bbbbbb;
-    --border-color: #444;
-
-    /* 🔵 Header */
-    --header-bg: #0a192f;
-    --header-text: #f1f1f1;
-    --header-border: #2a2a2a;
-    --header-link-bg: #1e293b;
-    --header-link-text: #00bcd4;
-    --header-dropdown-bg: #2a2a2a;
-    --header-dropdown-text: #f1f1f1;
-
-    /* 🟤 Sidebar */
-    --sidebar-bg-color: #2c2c2c;
-    --sidebar-text-color: #ddd;
-    --sidebar-hover-bg-color: #ff8c42;
-    --sidebar-hover-text-color: #111;
-
-    /* 🟡 Post Item */
-    --post-bg-color: #2c2c2c;
-    --post-border-color: #444;
-
-    /* 📄 Post Details */
-    --post-details-bg-color: #1e1e1e;
-    --post-details-title-color: #f1f1f1;
-    --post-details-desc-color: #cccccc;
-    --post-details-author-color: #eee;
-    --post-details-meta-color: #999;
-    --post-details-icon-color: #00bcd4;
-
-    /* 📝 Forms */
-    --form-border-color: #444;
-    --form-input-bg: #1f1f1f;
-    --form-text-color: #ddd;
-    --form-upload-bg: #333;
-    --form-btn-bg: #ff8c42;
-    --form-btn-text: #111;
-    --form-title-color: #f1f1f1;
-
-    /* 👤 Profile */
-    --profile-header-bg: #1f1f1f;
-    --profile-username-color: #f1f1f1;
-    --profile-bio-color: #bbbbbb;
-    --profile-joined-label-color: #999;
-    --profile-joined-date-color: #27ae60;
-    --profile-update-btn-bg: #27ae60;
-    --profile-update-btn-text: #111;
-    --profile-posts-title-color: #f1f1f1;
-
-    --delete-btn-bg: transparent;
-    --delete-btn-text: #ff6b6b;
-    --delete-btn-border: #ff6b6b;
-
-    --upload-btn-bg: #333;
-    --upload-btn-text: #f1f1f1;
-    --upload-btn-border: #888;
-
-    /* 🪟 Modal */
-    --modal-bg-color: #1f1f1f;
-    --modal-text-color: #ddd;
-    --modal-input-bg: #2a2a2a;
-    --modal-input-text: #eee;
-    --modal-input-border: #444;
-    --modal-btn-bg: #27ae60;
-    --modal-btn-text: #111;
-
-    /* 📊 Admin */
-    --admin-card-link-bg: var(--green-sea-color);
-    --admin-card-link-text: #111;
-    --admin-icon-bg: #333;
-    --admin-icon-text: #eee;
-
-    /* 📋 Table */
-    --table-row-hover-bg: rgba(255, 255, 255, 0.08);
-
-    /* 🧭 Category */
-    --category-title-color: #f1f1f1;
-    --category-border-color: #444;
-    --category-not-found-text: #ddd;
-    --category-not-found-highlight: #ff6b6b;
-    --category-link-color: #00bcd4;
-
-    /* ❌ Not Found */
-    --verify-icon-color: #27ae60;
-    --verify-title-color: #27ae60;
-    --verify-link-bg: var(--green-sea-color);
-    --verify-link-text: #111;
-    --verify-not-found-color: #ff6b6b;
 }
 
 body {
     background-color: var(--bg-color);
-    color: var(--text-color);
+    color: var(--text-primary);
+    font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    line-height: 1.6;
     overflow-x: hidden;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 a {
     text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
 }
 
 ul {
     list-style: none;
-    padding: 0;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+input,
+select,
+textarea,
+button {
+    font-family: inherit;
     outline: none;
 }
 
-/* Some Global Classes For icons */
+button {
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition-speed);
+}
+
+/* =========================================
+   🎨 Global Utility Classes
+   ========================================= */
+.card {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.card:hover {
+    box-shadow: var(--box-shadow-md);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: var(--border-radius-sm);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Icons */
 .bi-pencil-square {
-    color: var(--green-sea-color);
-    margin-right: 15px;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: opacity var(--transition-speed);
+}
+
+.bi-pencil-square:hover {
+    opacity: 0.8;
 }
 
 .bi-trash-fill {
-    color: var(--red-color);
+    color: var(--danger-color);
+    cursor: pointer;
+    transition: opacity var(--transition-speed);
 }
 
-/* Scrollbar Classes For Google Chrome */
-html::-webkit-scrollbar {
-    width: 12px;
+.bi-trash-fill:hover {
+    opacity: 0.8;
 }
 
-html::-webkit-scrollbar-track {
-    background-color: rgb(187, 179, 179);
+/* =========================================
+   📜 Custom Scrollbar
+   ========================================= */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-html::-webkit-scrollbar-thumb {
-    background-color: var(--dark-color);
-    border-radius: 15px;
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-secondary);
 }

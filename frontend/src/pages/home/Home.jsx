@@ -13,20 +13,30 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(fetchPosts(1))
+        window.scrollTo(0, 0)
     }, [])
 
     return (
         <section className="home">
-            <div className="home-hero-header">
-                <div className="home-hero-header-layout">
-                    <h1 className="home-title">Welcome to Blog</h1>
+            {/* 🌟 Modern Typographic Hero Section */}
+            <div className="home-hero">
+                <div className="home-hero-layout">
+                    <h1 className="home-title">Discover. <span>Learn.</span> Share.</h1>
+                    <p className="home-subtitle">
+                        Dive into a world of insightful articles, tutorials, and stories from our passionate community of writers.
+                    </p>
                 </div>
             </div>
-            <div className="home-latest-post">Latest Posts</div>
+
+            <div className="home-latest-post">
+                <h2>Latest Posts</h2>
+            </div>
+
             <div className="home-container">
                 <PostList posts={posts} />
                 <Sidebar />
             </div>
+
             <div className="home-see-posts-link">
                 <Link to="/posts" className="home-link">
                     See All Posts

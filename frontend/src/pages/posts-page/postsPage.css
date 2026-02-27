@@ -1,19 +1,29 @@
+/* =========================================
+   📄 Posts Page Layout (Wrapper)
+   ========================================= */
 .posts-page {
     display: flex;
     align-items: flex-start;
-    padding: 30px;
+    justify-content: center;
+    padding: 40px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 40px;
+    /* Modern spacing between posts list and sidebar */
 }
 
-/* Media Queries */
+/* --- Responsive Design --- */
 @media (max-width: 990px) {
     .posts-page {
         flex-direction: column-reverse;
+        /* Sidebar moves to the bottom */
         align-items: center;
+        gap: 50px;
     }
 }
 
 @media (max-width: 520px) {
     .posts-page {
-        padding: 15px;
+        padding: 20px 15px;
     }
 }

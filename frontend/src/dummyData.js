@@ -29,7 +29,7 @@ export const posts = [
         _id: 3,
         title: "good destination for summer",
         description: "About Travelling",
-        category: "travelling",
+        category: "traveling",
         image: "/images/istanbul.jpg",
         likes: [],
         createdAt: "Fri Oct 08 2021",

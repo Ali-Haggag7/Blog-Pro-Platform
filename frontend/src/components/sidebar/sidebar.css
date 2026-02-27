@@ -1,69 +1,125 @@
+/* =========================================
+   🟤 Sidebar & Categories
+   ========================================= */
 .sidebar {
     flex: 3;
-    margin-left: 20px;
+    margin-left: 30px;
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow-sm);
+    padding: 25px 20px;
+
+    /* 🔥 The Magic Trick: Makes the sidebar follow you when scrolling */
+    position: sticky;
+    top: 100px;
+    height: max-content;
 }
 
+/* --- Sidebar Title --- */
 .sidebar-title {
-    color: var(--text-color);
-    text-align: center;
-    padding: 5px;
-    font-size: 24px;
-    border-top: 1px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
+    color: var(--text-primary);
+    text-align: left;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 800;
+    border-bottom: 2px solid var(--input-bg);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* Small accent line under the title */
+.sidebar-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 40px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* --- Sidebar Links List --- */
 .sidebar-links {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .sidebar-link {
-    margin: 15px 0;
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--sidebar-text-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
     cursor: pointer;
-    background-color: var(--sidebar-bg-color);
-    text-align: center;
-    padding: 5px;
+    background-color: transparent;
+    padding: 12px 15px 12px 35px;
+    /* Extra left padding for the dot */
+    border-radius: var(--border-radius-md);
     position: relative;
     text-transform: capitalize;
     display: block;
-    clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 5% 100%, 0% 50%, 5% 0);
+    transition: all var(--transition-speed);
 }
 
+/* Hover Animation (Nudge right & change background) */
 .sidebar-link:hover {
-    background-color: var(--sidebar-hover-bg-color);
-    color: var(--sidebar-hover-text-color);
+    background-color: var(--input-bg);
+    color: var(--primary-color);
+    transform: translateX(6px);
 }
 
+/* Modernized Dot Indicator */
 .sidebar-link::after {
     content: "";
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     position: absolute;
     left: 15px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: var(--white-color);
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--border-color);
+    transition: all var(--transition-speed);
 }
 
+/* Dot Glow Effect on Hover */
+.sidebar-link:hover::after {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-hover);
+}
 
-/* Media Queries */
+/* =========================================
+   📱 Media Queries (Responsive Design)
+   ========================================= */
 @media (max-width: 990px) {
     .sidebar {
         margin-left: 0;
         width: 100%;
+        position: static;
+        /* Disable sticky on smaller screens */
+        margin-top: 30px;
+        padding: 20px;
     }
 
-    .sidebar-link::after {
-        left: 30px;
+    .sidebar-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* Allows links to sit side-by-side */
+        gap: 10px;
+    }
+
+    .sidebar-link {
+        flex: 1 1 calc(50% - 10px);
+        /* 2 columns on tablet */
     }
 }
 
 @media (max-width: 520px) {
-    .sidebar-link::after {
-        left: 20px;
+    .sidebar-link {
+        flex: 1 1 100%;
+        /* 1 column on mobile */
     }
 }

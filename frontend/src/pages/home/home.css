@@ -1,90 +1,176 @@
-.home-hero-header {
-    background: url(../../images/home-bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 250px;
-    width: 100%;
-    position: relative;
-    margin-bottom: 40px;
-}
+/* =========================================
+   🏠 Home Page (Premium Modern Layout)
+   ========================================= */
 
-.home-hero-header-layout {
+/* --- Clean Typographic Hero Section --- */
+.home-hero {
+    width: 100%;
+    padding: 100px 30px;
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background glow effect for that SaaS vibe */
+.home-hero::before {
+    content: '';
     position: absolute;
-    z-index: 2;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Glow adjustment for Dark Mode */
+.dark .home-hero::before {
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+}
+
+.home-hero-layout {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .home-title {
-    font-size: 40px;
-    background-color: var(--main-color);
-    padding: 10px 17px;
-    border-radius: 21px;
-    color: var(--dark-color);
-    border: 2px solid var(--green-color);
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: -2px;
+    line-height: 1.1;
 }
 
+/* Highlighted word gradient effect */
+.home-title span {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home-subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Latest Posts Title --- */
 .home-latest-post {
-    margin-left: 30px;
-    padding-bottom: 5px;
-    font-size: 30px;
-    font-weight: bold;
-    color: var(--text-color);
-    width: max-content;
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--dark-color);
+    max-width: 1400px;
+    margin: 0 auto 30px;
+    padding: 0 30px;
 }
 
+.home-latest-post h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    padding-bottom: 10px;
+    width: max-content;
+    position: relative;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.home-latest-post h2::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* --- Container & Layout --- */
 .home-container {
     padding: 0 30px;
     display: flex;
     align-items: flex-start;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 40px;
 }
 
+/* --- See All Posts Button --- */
 .home-see-posts-link {
     padding: 0 30px;
-    margin: 15px 0;
+    margin: 50px auto;
+    max-width: 400px;
+    /* Slimmer, more elegant button */
 }
 
 .home-see-posts-link .home-link {
     width: 100%;
-    padding: 10px;
-    font-size: 21px;
-    background-color: var(--dark-color);
-    color: var(--white-color);
-    font-weight: 500;
+    padding: 16px;
+    font-size: 16px;
+    background-color: transparent;
+    color: var(--primary-color);
+    font-weight: 600;
     cursor: pointer;
-    border: none;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-speed);
     display: block;
     text-align: center;
-    border-radius: 5px;
 }
 
+.home-see-posts-link .home-link:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-md);
+}
 
-/* Media Queries */
+/* =========================================
+   📱 Media Queries (Responsive Design)
+   ========================================= */
 @media (max-width: 990px) {
     .home-container {
         flex-direction: column;
         align-items: center;
+        gap: 50px;
     }
 }
 
 @media (max-width: 520px) {
+    .home-hero {
+        padding: 60px 20px;
+    }
+
+    .home-title {
+        font-size: 36px;
+    }
+
+    .home-latest-post {
+        padding: 0 15px;
+    }
+
+    .home-latest-post h2 {
+        font-size: 24px;
+    }
+
     .home-container {
         padding: 0 15px;
     }
 
-    .home-latest-post {
-        margin-left: 15px;
-    }
-
-    .home-title {
-        font-size: 30px;
+    .home-see-posts-link {
+        padding: 0 15px;
     }
 }

@@ -34,7 +34,7 @@ const Profile = () => {
 
     const formSubmitHandler = (e) => {
         e.preventDefault()
-        if (!file) return toast.warning("there is no file!")
+        if (!file) return toast.warning("There is no file selected!")
 
         const formData = new FormData()
         formData.append('image', file)
@@ -71,61 +71,72 @@ const Profile = () => {
 
     return (
         <section className="profile">
+            {/* 1. The Cover Background */}
             <div className="profile-header">
-                <div className="profile-image-wrapper">
-                    <img
-                        src={file ? URL.createObjectURL(file) : profile?.profilePhoto.url}
-                        alt=""
-                        className="profile-image"
-                    />
-                    {user?._id === profile?._id && (
-                        <form onSubmit={formSubmitHandler} className="upload-form">
-                            <abbr title="choose profile photo">
-                                <label htmlFor="file" className="bi bi-camera-fill upload-profile-photo-icon"></label>
-                            </abbr>
-                            <input style={{ display: "none" }} type="file" name="file" id="file" onChange={(e) => setFile(e.target.files[0])} />
-                            <button className="upload-profile-photo-btn" type="submit">upload</button>
-                        </form>
-                    )}
+                {/* 2. The Overlapping Info Container */}
+                <div className="profile-info-container">
+                    <div className="profile-image-wrapper">
+                        <img
+                            src={file ? URL.createObjectURL(file) : profile?.profilePhoto.url}
+                            alt=""
+                            className="profile-image"
+                        />
+                        {user?._id === profile?._id && (
+                            <form onSubmit={formSubmitHandler} className="upload-form">
+                                <abbr title="choose profile photo">
+                                    <label htmlFor="file" className="bi bi-camera-fill upload-profile-photo-icon"></label>
+                                </abbr>
+                                <input style={{ display: "none" }} type="file" name="file" id="file" onChange={(e) => setFile(e.target.files[0])} />
+                                {/* Hidden unless file is selected */}
+                                {file && <button className="upload-profile-photo-btn" type="submit">Upload</button>}
+                            </form>
+                        )}
+                    </div>
                 </div>
+            </div>
+
+            {/* 3. The Details Below the Cover */}
+            <div className="profile-details-wrapper">
                 <h1 className="profile-username">{profile?.username}</h1>
                 <p className="profile-bio">{profile?.bio}</p>
 
                 <div className="profile-follow-info">
-                    <span className="followers-count"><strong>Followers:</strong> {profile?.followers?.length || 0}</span>
+                    <span className="followers-count">Followers: {profile?.followers?.length || 0}</span>
                 </div>
 
                 <div className="user-date-joined">
-                    <strong>Date Joined: </strong>
+                    <strong>Joined: </strong>
                     <span>{new Date(profile?.createdAt).toDateString()}</span>
                 </div>
 
-                {user?._id === profile?._id ? (
-                    <button onClick={() => setUpdateProfile(true)} className="profile-update-btn">
-                        <i className="bi bi-file-person-fill"></i>
-                        Update Profile
-                    </button>
-                ) : (
-                    <button onClick={handleFollowToggle} className="follow-toggle-btn">
-                        {profile?.followers?.includes(user?._id) ? "Unfollow" : "Follow"}
-                    </button>
-                )}
+                {/* 4. Action Buttons Container */}
+                <div className="profile-actions">
+                    {user?._id === profile?._id ? (
+                        <>
+                            <button onClick={() => setUpdateProfile(true)} className="profile-update-btn">
+                                <i className="bi bi-pencil-square" style={{ marginRight: "5px" }}></i> Edit Profile
+                            </button>
+                            <button onClick={deleteAccountHandler} className="delete-account-btn">
+                                Delete Account
+                            </button>
+                        </>
+                    ) : (
+                        <button onClick={handleFollowToggle} className="follow-toggle-btn">
+                            {profile?.followers?.includes(user?._id) ? "Unfollow" : "Follow"}
+                        </button>
+                    )}
+                </div>
             </div>
 
+            {/* 5. User's Posts Section */}
             <div className="profile-posts-list">
-                <h2 className="profile-posts-list-title">{profile?.username} Posts</h2>
+                <h2 className="profile-posts-list-title">{profile?.username}'s Posts</h2>
                 {
                     profile?.posts?.map(post =>
                         <PostItem key={post?._id} post={post} username={profile?.username} userId={profile?._id} />
                     )
                 }
             </div>
-
-            {user?._id === profile?._id && (
-                <button onClick={deleteAccountHandler} className="delete-account-btn">
-                    Delete Your Account
-                </button>
-            )}
 
             {updateProfile && (
                 <UpdateProfileModal profile={profile} setUpdateProfile={setUpdateProfile} />
