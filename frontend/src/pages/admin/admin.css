@@ -226,3 +226,21 @@
         padding: 20px;
     }
 }
+
+@media (max-width: 768px) {
+    .admin-main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .add-category {
+        order: 1;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .admin-main-header {
+        order: 2;
+        margin-bottom: 0;
+    }
+}

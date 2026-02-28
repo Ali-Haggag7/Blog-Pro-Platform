@@ -131,11 +131,18 @@ const Profile = () => {
             {/* 5. User's Posts Section */}
             <div className="profile-posts-list">
                 <h2 className="profile-posts-list-title">{profile?.username}'s Posts</h2>
-                {
+
+                {profile?.posts?.length > 0 ? (
                     profile?.posts?.map(post =>
                         <PostItem key={post?._id} post={post} username={profile?.username} userId={profile?._id} />
                     )
-                }
+                ) : (
+                    <div className="no-posts-found">
+                        <i className="bi bi-stickies"></i>
+                        <h3>No Posts Found</h3>
+                        <p>This user hasn't published any posts yet.</p>
+                    </div>
+                )}
             </div>
 
             {updateProfile && (

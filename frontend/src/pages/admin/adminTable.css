@@ -25,6 +25,9 @@
     border-bottom: 2px solid var(--border-color);
     width: max-content;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .table-title::after {
@@ -36,6 +39,19 @@
     height: 4px;
     background-color: var(--primary-color);
     border-radius: 2px;
+}
+
+.table-back-btn {
+    color: var(--primary-color);
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    transition: transform var(--transition-speed), color var(--transition-speed);
+}
+
+.table-back-btn:hover {
+    color: var(--primary-hover);
+    transform: translateX(-5px);
 }
 
 /* --- The Table Element --- */
@@ -167,28 +183,33 @@ tr:hover td {
 }
 
 @media (max-width: 768px) {
-
-    /* Magic trick: Makes the table horizontally scrollable on small screens instead of squishing it */
     .table-container {
-        display: block;
-        /* Removes flex to allow scrolling */
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        min-height: calc(100vh - 80px);
     }
 
     .table-wrapper {
+        width: 100%;
+        padding: 15px;
         overflow-x: auto;
-        /* Enables horizontal scroll */
         -webkit-overflow-scrolling: touch;
-        /* Smooth scroll on iOS */
     }
 
     .table {
-        min-width: 600px;
-        /* Forces table to stay wide enough to read */
+        min-width: 700px;
     }
 }
 
 @media (max-width: 520px) {
     .table-title {
         font-size: 24px;
+    }
+
+    th,
+    td {
+        padding: 12px 10px;
     }
 }

@@ -7,7 +7,6 @@ import { useEffect } from "react"
 import { deleteProfile, getAllUsersProfile } from "../../redux/apiCalls/profileApiCall"
 
 const UsersTable = () => {
-
     const dispatch = useDispatch()
     const { profiles, isProfileDeleted } = useSelector((state) => state.profile)
 
@@ -15,7 +14,6 @@ const UsersTable = () => {
         dispatch(getAllUsersProfile())
     }, [isProfileDeleted])
 
-    // Delete User Handler
     const deleteUserHandler = (userId) => {
         swal({
             title: "Are you sure?",
@@ -34,48 +32,54 @@ const UsersTable = () => {
         <section className="table-container">
             <AdminSidebar />
             <div className="table-wrapper">
-                <h1 className="table-title">Users</h1>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Count</th>
-                            <th>User</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {profiles.map((item, index) => (
-                            <tr key={item._id}>
-                                <td>{index + 1}</td>
-                                <td>
-                                    <div className="table-image">
-                                        <img
-                                            src={item.profilePhoto?.url}
-                                            alt=""
-                                            className="table-user-image"
-                                        />
-                                        <span className="table-username">{item.username}</span>
-                                    </div>
-                                </td>
-                                <td>{item.email}</td>
-                                <td>
-                                    <div className="table-button-group">
-                                        <button>
-                                            <Link to={`/profile/${item._id}`}>View Profile</Link>
-                                        </button>
-                                        <button onClick={() => deleteUserHandler(item._id)}>
-                                            Delete User
-                                        </button>
-                                    </div>
-                                </td>
+                <h1 className="table-title">
+                    <Link to="/admin-dashboard" className="table-back-btn">
+                        <i className="bi bi-arrow-left"></i>
+                    </Link>
+                    Users
+                </h1>
+                {profiles.length > 0 ? (
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>Count</th>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Action</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {profiles.map((item, index) => (
+                                <tr key={item._id}>
+                                    <td>{index + 1}</td>
+                                    <td>
+                                        <div className="table-image">
+                                            <img src={item.profilePhoto?.url} alt="" className="table-user-image" />
+                                            <span className="table-username">{item.username}</span>
+                                        </div>
+                                    </td>
+                                    <td>{item.email}</td>
+                                    <td>
+                                        <div className="table-button-group">
+                                            <button>
+                                                <Link to={`/profile/${item._id}`}>View Profile</Link>
+                                            </button>
+                                            <button onClick={() => deleteUserHandler(item._id)}>Delete User</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <div className="no-posts-found">
+                        <i className="bi bi-people"></i>
+                        <h3>No Users Found</h3>
+                        <p>There are no registered users in the platform yet.</p>
+                    </div>
+                )}
             </div>
         </section>
     )
 }
-
-export default UsersTable
+export default UsersTable;

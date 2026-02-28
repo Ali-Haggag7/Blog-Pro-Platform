@@ -123,3 +123,57 @@
         /* 1 column on mobile */
     }
 }
+
+/* =========================================
+   📱 Sidebar Mobile Accordion
+   ========================================= */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-speed);
+}
+
+.sidebar-toggle-icon {
+    display: none;
+    font-size: 18px;
+    color: var(--primary-color);
+    transition: transform var(--transition-speed);
+}
+
+.sidebar-toggle-icon.open {
+    transform: rotate(180deg);
+    /* بتلف السهم لفوق لما تفتح */
+}
+
+@media (max-width: 768px) {
+    .sidebar-header {
+        cursor: pointer;
+        padding: 15px;
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        margin-bottom: 10px;
+    }
+
+    .sidebar-title {
+        margin-bottom: 0 !important;
+    }
+
+    .sidebar-toggle-icon {
+        display: block;
+    }
+
+    .sidebar-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-sm);
+        padding: 10px;
+    }
+
+    .sidebar-links.show {
+        display: flex;
+    }
+}

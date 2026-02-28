@@ -145,7 +145,7 @@
    ========================================= */
 @media (max-width: 990px) {
     .home-container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         gap: 50px;
     }
