@@ -28,31 +28,33 @@ const ResetPassword = () => {
 
     return (
         <section className="form-container">
-            {isError ? (
-                <h1>Not Found</h1>
-            ) : (
-                <>
-                    <h1 className="form-title">Reset Password</h1>
-                    <form onSubmit={formSubmitHandler} className="form">
-                        <div className="form-group">
-                            <label htmlFor="password" className="form-label">
-                                New Password
-                            </label>
-                            <input
-                                type="password"
-                                className="form-input"
-                                id="password"
-                                placeholder="Enter your new password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </div>
-                        <button className="form-btn" type="submit">
-                            Submit
-                        </button>
-                    </form>
-                </>
-            )}
+            <div className="form-wrapper">
+                {isError ? (
+                    <h1>Not Found</h1>
+                ) : (
+                    <>
+                        <h1 className="form-title">Reset Password</h1>
+                        <form onSubmit={formSubmitHandler} className="form">
+                            <div className="form-group">
+                                <label htmlFor="password" className="form-label">
+                                    New Password
+                                </label>
+                                <input
+                                    type="password"
+                                    className="form-input"
+                                    id="password"
+                                    placeholder="Enter your new password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </div>
+                            <button className="form-btn" type="submit">
+                                Submit
+                            </button>
+                        </form>
+                    </>
+                )}
+            </div>
         </section>
     )
 }

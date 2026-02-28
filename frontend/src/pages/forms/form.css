@@ -4,7 +4,6 @@
 .form-container {
     width: 100%;
     min-height: calc(100vh - 80px);
-    /* Fits screen exactly without scrolling if possible */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +11,7 @@
     background-color: var(--bg-color);
 }
 
-.form {
+.form-wrapper {
     width: 100%;
     max-width: 450px;
     /* The golden ratio for auth forms */
@@ -21,6 +20,12 @@
     border-radius: var(--border-radius-lg);
     box-shadow: var(--box-shadow-md);
     border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    width: 100%;
 }
 
 .form-title {
@@ -106,7 +111,7 @@
 
 /* Responsive */
 @media (max-width: 520px) {
-    .form {
+    .form-wrapper {
         padding: 35px 25px;
     }
 }
