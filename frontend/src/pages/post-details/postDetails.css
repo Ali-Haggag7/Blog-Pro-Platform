@@ -181,6 +181,18 @@
     color: var(--text-secondary);
 }
 
+.upload-image-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 15px;
+    transition: all var(--transition-speed);
+}
+
 /* =========================================
    📱 Media Queries (Responsive Design)
    ========================================= */

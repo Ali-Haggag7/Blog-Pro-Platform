@@ -55,9 +55,11 @@
 
 /* Highlighted word gradient effect */
 .home-title span {
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(to right, var(--primary-color), #38bdf8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-weight: 800;
 }
 
 .home-subtitle {

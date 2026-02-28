@@ -13,61 +13,81 @@
 
 .update-post-form {
     width: 700px;
-    background-color: var(--modal-bg-color);
-    color: var(--modal-text-color);
-    padding: 15px;
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    padding: 20px;
     display: flex;
     flex-direction: column;
     position: relative;
-    border-radius: 10px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-lg);
+    border: 1px solid var(--border-color);
 }
 
 .update-post-form-close {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    color: var(--red-color);
+    top: 10px;
+    right: 15px;
+    color: var(--danger-color);
     cursor: pointer;
-    font-size: 30px;
+    font-size: 28px;
+    transition: opacity var(--transition-speed);
+}
+
+.update-post-form-close:hover {
+    opacity: 0.8;
 }
 
 .update-post-title {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 24px;
-    color: var(--green-sea-color);
+    color: var(--primary-color);
     text-align: center;
+    font-weight: 600;
 }
 
 .update-post-input,
 .update-post-textarea {
     width: 100%;
-    border-radius: 10px;
-    font-size: 21px;
-    border: 1px solid var(--modal-input-border);
-    background-color: var(--modal-input-bg);
-    color: var(--modal-input-text);
-    padding: 10px;
+    border-radius: var(--border-radius-sm);
+    font-size: 18px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    padding: 12px 15px;
     margin: 10px 0;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.update-post-input:focus,
+.update-post-textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
 }
 
 .update-post-btn {
     width: 100%;
     text-align: center;
     cursor: pointer;
-    background-color: var(--modal-btn-bg);
+    background-color: var(--primary-color);
     border: none;
-    font-size: 21px;
-    font-weight: 500;
-    color: var(--modal-btn-text);
-    border-radius: 10px;
-    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: var(--border-radius-sm);
+    padding: 12px;
     margin-top: 15px;
+    transition: background-color var(--transition-speed);
 }
 
+.update-post-btn:hover {
+    background-color: var(--primary-hover);
+}
 
 /* Media Queries */
 @media (max-width: 820px) {
     .update-post-form {
         width: 90%;
+        padding: 15px;
     }
 }

@@ -16,7 +16,7 @@ const PostDetails = () => {
     const { post } = useSelector((state) => state.post)
     const { user } = useSelector((state) => state.auth)
 
-    const { id } = useParams()  // بتكون نص urlلان اي حاجه بنقراها من ال string ده نوعه idال
+    const { id } = useParams()
 
     const [file, setFile] = useState(null)
     const [updatePost, setUpdatePost] = useState(false)
@@ -63,7 +63,7 @@ const PostDetails = () => {
         <section className="post-details">
             <ToastContainer position="top-center" />
             <div className="post-details-image-wrapper">
-                <img src={file ? URL.createObjectURL(file) : post?.image.url} alt="" className="post-details-image" />
+                <img src={file ? URL.createObjectURL(file) : post?.image?.url} alt="" className="post-details-image" />
                 {user?._id === post?.user?._id && (
                     <form
                         onSubmit={updateImageSubmitHandler}
@@ -80,30 +80,25 @@ const PostDetails = () => {
                             id="file"
                             onChange={(e) => setFile(e.target.files[0])}
                         />
-                        <button type="submit">upload</button>
+                        {file && <button type="submit" className="upload-image-btn">Upload</button>}
                     </form>
                 )}
             </div>
             <h1 className="post-details-title">{post?.title}</h1>
             <div className="post-details-user-info">
-                <img src={post?.user.profilePhoto.url} alt="" className="post-details-user-image" />
+                <img src={post?.user?.profilePhoto?.url} alt="" className="post-details-user-image" />
                 <div className="post-details-user">
                     <strong>
-                        <Link to={`/profile/${post?.user._id}`}>{post?.user.username}</Link>
+                        <Link to={`/profile/${post?.user?._id}`}>{post?.user?.username}</Link>
                     </strong>
                     <span>{new Date(post?.createdAt).toDateString()}</span>
                 </div>
             </div>
+
             <p className="post-details-description">
                 {post?.description}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est
-                reprehenderit, molestiae officia non corrupti iusto, molestias quod
-                repellat, distinctio temporibus explicabo? Placeat, dolorum atque fugiat
-                vitae suscipit ratione quo? Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Vero est reprehenderit, molestiae officia non corrupti
-                iusto, molestias quod repellat, distinctio temporibus explicabo?
-                Placeat, dolorum atque fugiat vitae suscipit ratione quo?
             </p>
+
             <div className="post-details-icon-wrapper">
                 <div>
                     {
@@ -118,7 +113,7 @@ const PostDetails = () => {
                             ></i>
                         )
                     }
-                    <small>{post?.likes.length} likes</small>
+                    <small>{post?.likes?.length} likes</small>
                 </div>
                 {user?._id === post?.user?._id && (
                     <div>
