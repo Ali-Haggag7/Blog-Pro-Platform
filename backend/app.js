@@ -35,7 +35,9 @@ app.use(rateLimiting({  // يعني كل مستخدم يقدر يبعت اقصي
 
 // Cors Policy
 app.use(cors({
-    origin: "http://localhost:3000"
+    origin: "https://blog-pro-platform.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
 }))
 
 // Routes
