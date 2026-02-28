@@ -42,7 +42,7 @@ const UserSchema = new mongoose.Schema({
     },
     isAccountVerified: {
         type: Boolean,
-        default: false
+        default: true
     },
     followers: [{
         type: mongoose.Schema.Types.ObjectId, ref: "User",

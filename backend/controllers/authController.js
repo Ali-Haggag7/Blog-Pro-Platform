@@ -49,7 +49,7 @@ module.exports.registerUserCtrl = asyncHandler(async (req, res) => {
     </div>`
 
     // Sending email to the user
-    await sendEmail(user.email, "Verify Your Email", htmlTemplate)
+    // await sendEmail(user.email, "Verify Your Email", htmlTemplate)
 
     // Response to the client
     res.status(201).json({ message: "We sent to you an email, please verify your email address" })
@@ -73,31 +73,31 @@ module.exports.loginUserCtrl = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: "Invalid email or password" })
     }
 
-    if (!user.isAccountVerified) {
-        let verificationToken = await VerificationToken.findOne({
-            userId: user._id,
-        })
+    // if (!user.isAccountVerified) {
+    //     let verificationToken = await VerificationToken.findOne({
+    //         userId: user._id,
+    //     })
 
-        if (!verificationToken) {
-            verificationToken = new VerificationToken({
-                userId: user._id,
-                token: crypto.randomBytes(32).toString("hex"),
-            })
-            await verificationToken.save()
-        }
+    //     if (!verificationToken) {
+    //         verificationToken = new VerificationToken({
+    //             userId: user._id,
+    //             token: crypto.randomBytes(32).toString("hex"),
+    //         })
+    //         await verificationToken.save()
+    //     }
 
-        const link = `${process.env.CLIENT_DOMAIN}/users/${user._id}/verify/${verificationToken.token}`
+    //     const link = `${process.env.CLIENT_DOMAIN}/users/${user._id}/verify/${verificationToken.token}`
 
-        const htmlTemplate = `
-            <div>
-                <p>Click on the link below to verify your email</p>
-                <a href="${link}">Verify</a>
-            </div>`
+    //     const htmlTemplate = `
+    //         <div>
+    //             <p>Click on the link below to verify your email</p>
+    //             <a href="${link}">Verify</a>
+    //         </div>`
 
-        await sendEmail(user.email, "Verify Your Email", htmlTemplate)
+    //     await sendEmail(user.email, "Verify Your Email", htmlTemplate)
 
-        return res.status(400).json({ message: "Please verify your email before logging in" })
-    }
+    //     return res.status(400).json({ message: "Please verify your email before logging in" })
+    // }
 
     const token = user.generateAuthToken()
 
