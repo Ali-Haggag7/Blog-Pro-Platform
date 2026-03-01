@@ -21,6 +21,7 @@ const CreatePost = () => {
     // Form Submit Handler
     const formSubmitHandler = (e) => {
         e.preventDefault();
+
         if (title.trim() === "") return toast.error("Post Title is required")
         if (category.trim() === "") return toast.error("Post Category is required")
         if (description.trim() === "") return toast.error("Post Description is required")
@@ -48,6 +49,8 @@ const CreatePost = () => {
 
     return (
         <section className="create-post">
+            <ToastContainer position="top-center" />
+
             <h1 className="create-post-title">Create New Post</h1>
             <form onSubmit={formSubmitHandler} className="create-post-form">
                 <input

@@ -29,14 +29,11 @@ const Register = () => {
     const navigate = useNavigate()
 
     if (registerMessage) {
-        swal({
-            title: registerMessage,
-            icon: "success"
-        }).then(isOk => {
-            if (isOk) {
-                navigate("/login")
-            }
-        })
+        toast.success("Account created successfully! Please log in.");
+
+        setTimeout(() => {
+            navigate("/login");
+        }, 2000);
     }
 
     return (
