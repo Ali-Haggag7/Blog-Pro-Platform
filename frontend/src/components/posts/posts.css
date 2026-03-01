@@ -1,13 +1,11 @@
 /* =========================================
-   📰 Posts List & Cards
+   📰 Posts List & Cards (Masterclass Layout)
    ========================================= */
 .post-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 30px;
     flex: 9;
-    align-items: start;
-    /* Prevents cards from stretching vertically if one is taller */
 }
 
 .post-item {
@@ -17,9 +15,8 @@
     border: 1px solid var(--border-color);
     box-shadow: var(--box-shadow-sm);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     overflow: hidden;
-    /* Keeps the image inside the border radius */
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -31,29 +28,30 @@
 
 /* --- Image Section --- */
 .post-item-image-wrapper {
-    width: 100%;
+    width: 45%;
+    flex-shrink: 0;
     overflow: hidden;
-    /* Essential for the image zoom effect */
 }
 
 .post-item-image {
     width: 100%;
-    height: 350px;
+    height: 100%;
+    min-height: 280px;
     object-fit: cover;
-    /* 'Cover' looks much more professional than 'contain' for cards */
     transition: transform 0.6s ease;
 }
 
 .post-item:hover .post-item-image {
     transform: scale(1.05);
-    /* Subtle image zoom on hover */
 }
 
 /* --- Content Section --- */
 .post-item-info-wrapper {
-    padding: 25px;
+    width: 55%;
+    padding: 30px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 15px;
 }
 
@@ -133,22 +131,20 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    /* Keep it clean with exactly 3 lines */
     -webkit-box-orient: vertical;
 }
 
-/* Read More Button (Ghost Button Style) */
+/* Read More Button */
 .post-item-link {
     background-color: transparent;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
-    width: 100%;
-    display: block;
-    text-align: center;
-    font-size: 16px;
+    width: max-content;
+    align-self: flex-start;
+    font-size: 15px;
     font-weight: 600;
     border-radius: var(--border-radius-md);
-    padding: 10px;
+    padding: 8px 20px;
     margin-top: 5px;
     transition: all var(--transition-speed);
 }
@@ -200,18 +196,30 @@
 /* =========================================
    📱 Media Queries (Responsive Design)
    ========================================= */
-@media (max-width: 768px) {
-    .post-list {
-        gap: 20px;
+@media (max-width: 990px) {
+    .post-item {
+        flex-direction: column;
     }
 
-    .post-item-image {
+    .post-item-image-wrapper {
+        width: 100%;
         height: 250px;
     }
 
     .post-item-info-wrapper {
-        padding: 18px;
-        gap: 12px;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .post-item-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .post-list {
+        gap: 20px;
     }
 
     .post-item-title {
@@ -220,7 +228,6 @@
 
     .post-item-details {
         flex-direction: column;
-        /* Stack category below title on mobile */
         align-items: flex-start;
         gap: 10px;
     }
